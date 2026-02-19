@@ -1,8 +1,19 @@
-class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        result = ""
-        for char in s:
-            if char.isalnum():
-                result += char.lower()   
+class Solution(object):
+    def isPalindrome(self, s):
+        left, right = 0, len(s) - 1
 
-        return result == result[::-1]  
+        while left < right:
+            while left < right and not s[left].isalnum():
+                left += 1
+
+            while left < right and not s[right].isalnum():
+                right -= 1
+
+            if s[left].lower() != s[right].lower():
+        # Replace this placeholder "pass" statement with your code
+                return False
+      
+            left += 1
+            right -= 1
+
+        return True
